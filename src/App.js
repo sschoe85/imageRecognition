@@ -5,10 +5,9 @@ const cocoSsd = require('@tensorflow-models/coco-ssd');
 
 
 function App() {
-  function detectObjects(video, model) {
-    model.detect(video).then(predictions => {      
-      document.querySelector('.current-predictions').innerText = JSON.stringify(predictions, null, 2);
-    });
+ async function detectObjects(video, model) {
+   let predictions = await model.detect(video);     
+    document.querySelector('.current-predictions').innerText = JSON.stringify(predictions, 2);
     window.requestAnimationFrame(() => detectObjects(video, model));
   }
   
