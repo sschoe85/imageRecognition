@@ -4,5 +4,5 @@ export default async function detectObjects(video, model) {
       predictions,
       2
     );
-    window.requestAnimationFrame(() => detectObjects(video, model));
+    //window.requestAnimationFrame(() => detectObjects(video, model));
   }

@@ -1,8 +1,12 @@
 import React from "react";
 import { getMedia } from "./api/getMedia";
+import { useQuery } from "react-query";
+
 
 function App() {
-  getMedia({video: true});
+  const { isLoading, error, data } = useQuery('predictions', () =>
+
+     getMedia({video: true}));
 
   return (
     <div className="App">
@@ -13,6 +17,13 @@ function App() {
       </div>
 
       <pre class="current-predictions"></pre>
+      {error && <div>Error!</div>}
+        {isLoading && <div>Page is loading...</div>}
+        {data?.map((prediction) => (
+          prediction.class
+            
+          
+        ))}
     </div>
   );
 }

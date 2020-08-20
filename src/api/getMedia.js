@@ -13,8 +13,8 @@ export async function getMedia(constraints) {
       video.srcObject = stream;
       video.addEventListener("loadeddata", async () => {
         const model = await cocoSsd.load();
-        console.log(model);
-        await detectObjects(video, model);
+        const predictions = await detectObjects(video, model);
+        return predictions;
       });
     } catch(err) {
     }
