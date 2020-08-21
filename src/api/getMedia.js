@@ -1,6 +1,6 @@
-require("@tensorflow/tfjs-backend-cpu");
-require("@tensorflow/tfjs-backend-webgl");
-const cocoSsd = require("@tensorflow-models/coco-ssd");
+import calculateModel from "./calculateModel";
+
+
 
 
 export async function getMedia(constraints) {
@@ -10,17 +10,9 @@ export async function getMedia(constraints) {
       stream = await navigator.mediaDevices.getUserMedia(constraints);
       const video = document.querySelector("#webcam");
       video.srcObject = stream;
-      video.addEventListener("loadeddata", async () => {
-        const model = await cocoSsd.load();
-        let predictions = await model.detect(video);
-        console.log(predictions);
-        document.querySelector(".current-predictions").innerText = JSON.stringify(
-          predictions,
-          2
-        );
-        return predictions;
-      });
+      video.addEventListener("loadeddata", ()=> calculateModel(video));
     } catch(err) {
     }
+
   }
   
