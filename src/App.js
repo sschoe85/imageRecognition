@@ -10,13 +10,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Image Object Classification with TensorFlow.js</h1>
+      <h1>Hello, this is your computer! Show me something and I will tell you what I see...</h1>
 
       <div class="responsive-embed">
-        <video id="webcam" autoplay></video>
+        <video id="webcam"></video>
       </div>
 
-      <pre class="current-predictions"></pre>
+      <div class="current-predictions"></div>
       {error && <div>Error!</div>}
         {isLoading && <div>Page is loading...</div>}
         {data?.map((prediction) => (

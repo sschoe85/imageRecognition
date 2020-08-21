@@ -1,4 +1,3 @@
-import detectObjects from "./detectObjects";
 require("@tensorflow/tfjs-backend-cpu");
 require("@tensorflow/tfjs-backend-webgl");
 const cocoSsd = require("@tensorflow-models/coco-ssd");
@@ -13,7 +12,12 @@ export async function getMedia(constraints) {
       video.srcObject = stream;
       video.addEventListener("loadeddata", async () => {
         const model = await cocoSsd.load();
-        const predictions = await detectObjects(video, model);
+        let predictions = await model.detect(video);
+        console.log(predictions);
+        document.querySelector(".current-predictions").innerText = JSON.stringify(
+          predictions,
+          2
+        );
         return predictions;
       });
     } catch(err) {
