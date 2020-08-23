@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import Camera from '../components/Camera';
+import React from "react";
+import styled from "@emotion/styled";
+import Camera from "../components/IntelligentCamera";
 
 function VideoPage() {
   const StyledDiv = styled.div`
@@ -10,17 +10,14 @@ function VideoPage() {
     background-color: blueviolet;
     font-weight: bold;
     font-size: 2em;
-    
   `;
-    
-    return (
-        <div>
 
-      <Camera/>
-      <StyledDiv className="current-predictions"/>
-
+  return (
+    <div>
+      <Camera />
+      <StyledDiv className="current-predictions" />
     </div>
-    );
+  );
 }
 
 export default VideoPage;

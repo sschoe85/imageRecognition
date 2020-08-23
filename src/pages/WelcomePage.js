@@ -3,11 +3,7 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
 function WelcomePage() {
-
-
-
   const StyledLink = styled(Link)`
-    
     color: white;
     font-weight: bold;
     font-size: 2em;
@@ -16,12 +12,11 @@ function WelcomePage() {
     justify-self: center;
   `;
 
-const StyledDiv = styled.div`
+  const StyledDiv = styled.div`
     display: grid;
     justify-content: center;
     align-items: center;
     background-color: blueviolet;
-    
   `;
   return (
     <StyledDiv>
@@ -29,7 +24,7 @@ const StyledDiv = styled.div`
         Hello! This is your computer. Show me something and I will tell you what
         I see...
       </h1>
-      <StyledLink to ="/video">Let's go!</StyledLink>
+      <StyledLink to="/video">Let's go!</StyledLink>
     </StyledDiv>
   );
 }

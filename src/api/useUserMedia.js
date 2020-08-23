@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 
 export default function useUserMedia(requestedMedia) {
@@ -7,20 +6,21 @@ export default function useUserMedia(requestedMedia) {
   useEffect(() => {
     async function enableStream() {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia(requestedMedia);
+        const stream = await navigator.mediaDevices.getUserMedia(
+          requestedMedia
+        );
         setMediaStream(stream);
-      } catch(err) {
-      }
+      } catch (err) {}
     }
 
     if (!mediaStream) {
       enableStream();
     } else {
       return function cleanup() {
-        mediaStream.getTracks().forEach(track => {
+        mediaStream.getTracks().forEach((track) => {
           track.stop();
         });
-      }
+      };
     }
   }, [mediaStream, requestedMedia]);
 
