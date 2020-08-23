@@ -1,7 +1,6 @@
 import React from 'react';
-import { useQuery } from 'react-query';
-import { getMedia } from '../api/useUserMedia';
 import styled from '@emotion/styled';
+import Camera from '../components/Camera';
 
 function VideoPage() {
   const StyledDiv = styled.div`
@@ -13,23 +12,13 @@ function VideoPage() {
     font-size: 2em;
     
   `;
-    const { isLoading, error, data } = useQuery('predictions', () =>
-
-    getMedia({video: true}));
+    
     return (
         <div>
-      <div>
-        <video id="webcam"></video>
-      </div>
 
+      <Camera/>
       <StyledDiv className="current-predictions"/>
-      {error && <div>Error!</div>}
-        {isLoading && <div>Page is loading...</div>}
-        {data?.map((prediction) => (
-          prediction.class
-            
-          
-        ))}
+
     </div>
     );
 }
