@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import { getMedia } from '../api/getMedia';
+import { getMedia } from '../api/useUserMedia';
 import styled from '@emotion/styled';
 
 function VideoPage() {
