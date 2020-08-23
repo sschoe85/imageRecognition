@@ -12,7 +12,8 @@ export default function Camera() {
   }
 
   function handleOnLoadedData() {
-    calculateModel(videoRef);
+    calculateModel(videoRef.current);
+
   }
 
   return (
