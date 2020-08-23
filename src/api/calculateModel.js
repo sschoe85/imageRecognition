@@ -6,8 +6,8 @@ const calculateModel = async (video) => {
     const model = await cocoSsd.load();
     let predictions = await model.detect(video);
     console.log(predictions);
-    document.querySelector(".current-predictions").innerText = JSON.stringify(
-      predictions,
+    document.querySelector(".current-predictions").innerText = "I see a" + JSON.stringify(
+      predictions[0].class,
       2
     );
   }
